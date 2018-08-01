@@ -1,0 +1,100 @@
+<html>
+	<head>
+		<title>University Projects</title>
+		<link rel="stylesheet" type="text/css" href="sheet.css">
+	</head>
+	<body>
+		<h1>
+			</br>
+			University Projects
+			</br>
+		</h1>
+		<hr>
+		<ul class="topbar">
+			<li class="topbar"><a href="home.html">Home</a></li>
+			<li class="topbar"><a href="uniprojects.html">University Projects</a></li>
+			<li class="topbar"><a href="personalprojects.html">Personal Projects</a></li>
+			<li class="topbar"><a href="contact.html">Contact</a></li>
+		</ul>
+		<hr>
+		
+		<label class="collapse" for="_1"><h2 style="padding-left:25vh">- Fixed Wing UAV</h2></label>
+		<input id="_1" type="checkbox"> 
+		<div>
+			<div class="card" >
+				<h3>Duration - 3 months</h3>
+				<p>
+					This project was completed in semester 2, year 2, with a group of 5.
+					My role was in avionics. This involved design, making, and programming a semi autonomous
+					flight computer. The rest of the team designed and built the wing.
+					</br></br> <img src="images/uni projects/uav1.jpg" alt="UAV" class="center" width="800"> </br>
+					For the flight computer, we were given:
+				</p>
+				<ul>
+					<li>Arduino uno Rev3</li>
+					<li>Ultimate GPS + SD card shield</li>
+					<li>Arduino uno Rev3</li>
+					<li>BMP085 pressure/temperature sensor</li>
+					<li>LSM303DLHC compass/accelerometer</li>
+					<li>L3GD20H gyro</li>
+					<li>A 60A speed controller</li>
+					<li>6 Channel receiver</li>
+				</ul>
+				</br>
+				<p>
+					With the given items, the avionics system had to:
+				</p>
+				<ul>
+					<li>Allow full manual control of the aircraft</li>
+					<li>At the flick of a switch on the transmitter, change to autopilot mode</li>
+					<li>In autopilot mode, maintain a straight and level flight</li>
+					<li>Log various data items throughout the flight for later analysis</li>
+				</ul>
+				<p>
+					The first step was to design the circuitry required, followed by a simple prototype:
+					</br></br> <img src="images/uni projects/uav2.png" alt="UAV" class="center" width="800"> </br>
+					After multiple iterations, the design was finalised, and the wiring could be layed out and fixed to the avionics tray.
+					A sizeable portion of time was spent optimising the various systems to lower mass.
+					Jumper cables would added later to connect the various components.
+					</br></br> <img src="images/uni projects/uav3.png" alt="UAV" class="center" width="800"> </br>
+					The final circuit diagram is as follows:
+					</br></br> <img src="images/uni projects/uav4.png" alt="UAV" class="center" width="800"> </br>
+					The software was written in parallel with hardware development. Given the use of an Arduino Uno, memory was severely
+					limited. The program had to do 3 things:
+				</p>
+				<ol>
+					<li>Read sensor data, and log it to an SD card</li>
+					<li>Monitor if the autopilot switch on the transmitter is engaged</li>
+					<li>Autonomously control the ailerons and elevator if the switch is engaged</li>
+				</ol>
+				<p>
+				To achieve these goals, many problems had to be solved:
+				</p>
+				<ol>
+					<li>We were specifically told at the start of the project it was not possible
+					to run all the sensors, and we'd have to use a limited subset of them. With careful library choice, we discovered that
+					it was definitely possible. Unfortunately, the GPS logging was not very successful, due to the carbon fibre wing spar,
+					and aluminium tail spar blocking the signal. The rest of the data logging was successful however.</li>
+					<li>Monitoring the receiver channel was quite straight forward, by simply connecting the channel to a PWM pin on the 
+					Arduino. Many failsafes were built into this section, reverting to manual mode if the wire became disconnected, or if
+					the signal is weak.</li>
+					<li>To control the attitude of the aircraft, accurate measurements of pitch and roll were required. To do this, data from the 
+					accelerometer and gyro were combined with a complementary filter.
+					Pitch and roll data was then fed into 2 PID controllers, one for elevator angle and one for aileron angle. Tuning the PID loops
+					correctly was very difficult given we only had one test flight. Luckily, I have some experience with PIDs from a previous project,
+					and using my engineering intuition, guessed approximated tuning values.
+					</li>
+				</ol>
+				<p>
+					In the test flight, the aircraft flew very well, and the autopilot was surprisingly effective. After the test flight, the pilot
+					was clearly very happy with how well the autopilot performed. After receiving the marked work back, the autopilot was the best
+					part of our work, and as far as I am aware, the best they have ever had for that project.
+				</p>
+				</br> <img src="images/uni projects/uav5.png" alt="UAV" class="center" width="800"> </br>
+			</div>
+		</div>
+	</body>
+	<footer>
+		Sam Newman 2018
+	</footer>
+</html>

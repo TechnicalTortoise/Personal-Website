@@ -1,0 +1,156 @@
+body {
+    background-color: black;
+	background-image: url("images/bigstarfield.png");
+}
+
+html {
+    overflow-y: scroll;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+	font-family: "roboto black";
+	font-size: 60px;
+	font-style: oblique;
+}
+
+h2 {
+	color: white;
+	text-align: left;
+	font-family: roboto;
+	font-size: 30px;
+	font-style: oblique;
+}
+
+h3 {
+	color: white;
+	text-align: left;
+	font-family: roboto;
+	font-size: 20px;
+}
+
+p {
+	color: white;
+    font-family: "roboto thin";
+    font-size: 18px;
+}
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    border-style: outset;
+    border-width: 2px;
+}
+
+div {
+    width: 500px;
+    padding-left: 10vw;
+	padding-right: 5vw;
+}
+
+ul.topbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+	padding-left: 8vw;
+    overflow: hidden;
+    background-color: 0;
+}
+
+ul {
+	display:inline-block;
+	list-style-type: circle;
+}
+
+ol {
+	display:inline-block;
+}
+
+li {
+	color: white;
+	font-family: "roboto thin";
+	font-size: 18px;
+	display: list-item;
+}
+
+li.topbar {
+    float: left;
+	color: white;
+    font-size: 18px;
+	margin: 0;
+	padding: 0;
+	display: list-item;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 0px 32px;
+    text-decoration: none;
+	font-family: roboto;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+a {
+	color: white
+}
+
+.card {
+  background-color: rgb(1, 0, 2);
+  padding-left: 20px;
+  padding-bottom: 10px;
+  margin-left: 0px;
+  width: 70vw;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.collapse{
+  cursor: pointer;
+  display: block;
+  background: #000000;
+}
+
+.collapse + input{
+  display: none;
+}
+
+.collapse + input + div{
+  display:none;
+}
+
+.collapse + input:checked + div{
+  display:block;
+}
+
+footer {
+    color: white;
+    padding: 0;
+    text-align: right;
+    position: fixed;
+    bottom: 0px;
+    width: 99%;
+	font-size: 15px;
+	font-family: "roboto thin";
+}
+
+p, ul {
+	margin-top: -10px;
+}
+
+p, ol {
+	margin-top: -10px;
+}
