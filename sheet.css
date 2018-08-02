@@ -169,3 +169,10 @@ p, ul {
 p, ol {
 	margin-top: -10px;
 }
+
+td {
+	vertical-align: bottom;
+	text-align: left;
+	padding-right: 20vw;
+	margin-top: 0px;
+}
