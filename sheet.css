@@ -87,7 +87,7 @@ ol {
 
 li {
 	color: white;
-	font-family: "roboto thin";
+	font-family: robotothin;
 	font-size: 18px;
 	display: list-item;
 }
@@ -159,7 +159,7 @@ footer {
     bottom: 0px;
     width: 99%;
 	font-size: 15px;
-	font-family: "roboto thin";
+	font-family: robotothin;
 }
 
 p, ul {
