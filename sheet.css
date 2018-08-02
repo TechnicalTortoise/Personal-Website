@@ -1,3 +1,18 @@
+@font-face {
+    font-family: roboto;
+    src: url(robotoregular.ttf);
+}
+
+@font-face {
+    font-family: robotoblack;
+    src: url(robotoblack.ttf);
+}
+
+@font-face {
+    font-family: robotothin;
+    src: url(robotothin.ttf);
+}
+
 body {
     background-color: black;
 	background-image: url("images/bigstarfield.png");
@@ -10,7 +25,7 @@ html {
 h1 {
     color: white;
     text-align: center;
-	font-family: "roboto black";
+	font-family: robotoblack;
 	font-size: 60px;
 	font-style: oblique;
 }
@@ -32,7 +47,7 @@ h3 {
 
 p {
 	color: white;
-    font-family: "roboto thin";
+    font-family: robotothin;
     font-size: 18px;
 }
 
