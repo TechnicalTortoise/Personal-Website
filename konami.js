@@ -39,5 +39,4 @@ document.addEventListener('keydown', function(e) {
 
 function activateCheats() {
   document.getElementById("logo").src = "images/hug.jpg";	
-  document.body.style.backgroundSize = "100% 100%";
 }
