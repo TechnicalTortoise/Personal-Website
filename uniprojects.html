@@ -15,13 +15,61 @@
 			<li class="topbar"><a href="home.html">Home</a></li>
 			<li class="topbar"><a href="uniprojects.html">University Projects</a></li>
 			<li class="topbar"><a href="personalprojects.html">Personal Projects</a></li>
-			<li class="topbar"><a href="societyprojects.html">Society Projects</a></li>
 			<li class="topbar"><a href="games.html">Games</a></li>
 			<li class="topbar"><a href="contact.html">Contact</a></li>
 		</ul>
 		<hr>
 		
-		<label class="collapse" for="_2"><h2 style="padding-left:25vh">- Fixed Wing UAV</h2></label>
+		<label class="collapse" for="_3"><h2 style="padding-left:25vh">+ Flight path tracking system</h2></label>
+		<input id="_3" type="checkbox"> 
+		<div>
+			<div class="card" >
+				<h3>Duration - 7 months</h3>
+				<p>
+					This project was for my undergraduate dissertiation in year 3. The goal was to capture 3D position information of a moving target, while pointing a 
+					laser or camera at it. This involved extensive research, design, building, programming, tuning, and testing. The long term goal is for a derivative of this
+					project to study dragonflies in flight, as they move too fast for a person to keep them in frame.
+				</p>
+				<p>
+					Initially, some already existing systems with similar goals were researched, such as <a href="https://www.youtube.com/watch?v=Er5qRyz4NV0">here</a>.
+					From my research, the overall arrangement and mode of operation was decided. A stereo camera pair would be used for 3D position measurements of the target, and a
+					galvanometer mirror pair would be used to point a laser or camera. I ended up using a laser almost exclusively because it was easier to evaluate system
+					performance at the end. Conveniently, a pair of cameras and a laser were already availble, as my supervisor had them already. The main challenge with the hardware
+					side of the project was the control of the galvos. Firstly, a galvo kit was purchased from ebay, costing around £50. This contained a power supply, galvo drivers,
+					and the galvos themselves. To control them, the galvo drivers required a bipolar analogue signal. This was done using an Arduino Due and its analogue outputs, with 
+					a set of op-amps. The completed circuitry and op amp schematic are shown below. This circuitry maps the analogue output from the arduino to the required range for
+					driving the galvos. The Arduino is to be instructed where to point the galvos based on data from the main control computer, simply using a USB connection.
+					</br></br> <img src="images/uni projects/diss/circuit.png" alt="ip" class="center"></br>
+					</br></br> <img src="images/uni projects/diss/schematic.png" alt="ip" class="center"></br>
+					Once the circuitry was confirmed to work, the overall structure was designed and built. The CAD is shown here:
+					</br></br> <img src="images/uni projects/diss/cad.png" alt="ip" class="center" width="600"> </br>
+					The main structure is made of 40x40 aluminium extrusion with a plywood sheet to hold the components. The actual built device:
+					</br></br> <img src="images/uni projects/diss/builtsystem.jpg" alt="ip" class="center" width="600"> </br>			
+				</p>
+				<p>
+					The hardest and most time consuming part of this project was the software. The main software was written in Python, with the software on the Arduino in C. To make 
+					the cameras work in Python, the library <a href="https://github.com/genicam/harvesters">Harvesters</a> was used. The libary OpenCV was also used extensively, mainly for camera
+					calibration and identifying the target in each image. The galvos were calibrated by aiming the laser at a grid of points, and then triangulating the 3D position of the laser dot
+					on the wall. From this, a look up table between required angle and galvo input could be generated. Using this information, the laser could then be aimed at the target in real time.
+				</p>
+				
+				<p>
+					Here is the device tracking a quadcopter (with a big red dot attached because at the time I wasn't aware of how to track more generic objects):
+				</p>
+				
+				</br>
+				<iframe width="1120" height="630" src="https://www.youtube.com/embed/QtK9BdcXVAM" frameborder="0" class="center" allowfullscreen></iframe>
+				</br>
+				
+				<p>
+					Overall the project was very successful, earning exceptional marks. Note this brief description doesn't give much detail, and simply doesn't put across the amount time and effort that went into this.
+					</br></br>
+					-05/10/19
+				</p>				
+			</div>
+		</div>
+		
+		<label class="collapse" for="_2"><h2 style="padding-left:25vh">+ Fixed Wing UAV</h2></label>
 		<input id="_2" type="checkbox"> 
 		<div>
 			<div class="card" >
@@ -100,7 +148,7 @@
 			</div>
 		</div>
 		
-		<label class="collapse" for="_1"><h2 style="padding-left:25vh">- Odometry</h2></label>
+		<label class="collapse" for="_1"><h2 style="padding-left:25vh">+ Odometry</h2></label>
 		<input id="_1" type="checkbox"> 
 		<div>
 			<div class="card" >
