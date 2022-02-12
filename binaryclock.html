@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Binary Clock</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+        <header class="article-header">
+            <div >
+                <h1>Binary Clock</h1>
+            </div>
+            <div class="logo">
+            <a href="index.html">
+                <img src="Images/logo.png" alt="logo">
+            </a>
+            </div>
+          </header>
+
+        <section>
+            <h2>Version 1</h2>
+            
+            <p>
+                The first version of this project started in January 2018, and honestly, it wasn't very good.
+                Earlier in the academic year, we were given Arduino kits as part of our course, and I figured 
+                doing a simple project like this would be a good learning opportunity.
+            </p>
+            <section class="image-with-caption">
+                <figure>
+                    <img src="Images/BinaryClock/prototype.JPG" alt="Prototype">
+                    <figcaption>Prototype Clock</figcaption>
+                </figure>
+            </section>
+
+            <p>
+                Firstly, there was the issue of actually keeping time with an Arduino. To solve this I bought a 
+                DS1037 RTC (real time clock) module. This was the cheapest I could find (oh student life), and would later be an issue.          
+            </p>
+            <p>
+                The second issue was the lack of available IO pins on the Arduino Uno. To display the time in binary, you need 6 bits for seconds, 6 bits
+                for minutes, and 5 bits for hours, making a total of 17 bits/LEDs. For symmetry I went with a total 18. To run these from an Arduino I used
+                shift registers, as this is what I had. This also ended being an issue later down the line.
+                I also decided to add 2 buttons to set the time.
+            </p>
+            <p>
+                Once I got the initial prototype working, I purchased an Arduino Nano for compactness, and some blue LEDs for coolness.
+                I then threw together a questionably fitting friction fit housing in Solidworks, and cut it out of MDF on the University laser cutter.
+                As I didn't know any better, I had all the electronics on a breadboard, and the internals were generally a mess, but technically functioning.
+            </p>
+
+            <section class="image-with-caption">
+                <figure>
+                    <img src="Images/BinaryClock/front.JPG" alt="Version 1 complete">
+                    <figcaption>Version 1 Clock</figcaption>
+                </figure>
+            </section>
+
+            <p>
+                On first glance, version 1 seemed to work very well, the time was displayed correctly and could be adjusted, and seemed to keep time.
+                However:
+                <ul>
+                    <li>The LEDs were far too bright, and blue light makes it hard to sleep (the clock was in my bedroom).</li>
+                    <li>The brightness of the LEDs was not consistent. The brightness of each LED depended on the total number of LEDs currently on, which made it appear to flicker.</li>
+                    <li>The RTC module was not temperature compensating, and so would drift by a few minutes every day.</li>
+                </ul>
+                As university picked up again, I didn't have time to fix these. And so the clock was turned off, and put away and forgotten about for 3 years... 
+            </p>
+
+            <h2>Version 2</h2>
+            <p>
+                3 Years and 4 house moves later, I found the old clock. We desparately needed some decoration in our living room so I figured it'd be a good chance to see how much I'd learned over the years.
+                I kept the MDF housing, Arduino Nano, and the push buttons, but thats about all.
+                The improvements were as follows:
+                <ul>
+                    <li>RTC module upgraded to a DS3231, which has temperature compensation, so it will hardly drift.</li>
+                    <li>Switched out the shift registers to DM13A constant current LED drivers.</li>
+                    <li>Added a potentiometer on the back to control brightness.</li>
+                </ul>
+                While version 2 looks identical, it functions significantly better, as it doesn't drift, and the brightness is far less intrusive.
+                We've used it as our living room clock for over a year now with no issues.
+            </p>
+
+            <section class="image-with-caption">
+                <figure>
+                    <img src="Images/BinaryClock/OnShelf.jpg" alt="Version 2 complete">
+                    <figcaption>Version 1 Clock</figcaption>
+                </figure>
+            </section>
+
+            <p>
+                Most importantly, at 22:15:09, it looks like a turtle. It is generally quite hypnotic to watch, as various patterns emerge. Because of this,
+                it's ended up being quite the conversation starter.
+            </p>
+
+            <section class="image-with-caption">
+                <figure>
+                    <img src="Images/BinaryClock/TurtleTime.png" alt="Turtle time!">
+                    <figcaption>Turtle time!</figcaption>
+                </figure>
+            </section>
+
+        </section>
+
+        <footer>
+            Sam Newman 
+            | <a href="">CV</a>
+            | Contact:
+            <a href="http://www.linkedin.com/in/samnewmanaa3068152">LinkedIn</a>
+            <a href="https://www.youtube.com/channel/UCvM0fXQBl-AKibHYmPgmfOQ">Youtube</a>
+            | Last edited 02/2022
+          </footer>
+    </main>
+  </body>
+</html>

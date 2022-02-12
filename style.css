@@ -1,0 +1,109 @@
+@font-face {
+    font-family: "roboto";
+    src: url("robotoregular.ttf");
+  }
+
+@font-face {
+    font-family: "roboto-black";
+    src: url("robotoblack.ttf");
+  }
+
+html, body {
+    margin: 0;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(Images/Bigstarfield.png);
+    font-family: "roboto";
+}
+
+main {
+    width: 100%;
+    max-width: 63em;
+    background-color: rgb(24, 24, 24);
+    padding: 1em;
+    margin: 0 auto;
+    min-height: 100%;
+    color: white;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+}
+
+main header {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+h1 {
+    font-family: "roboto-black";
+    font-style:italic;
+}
+
+.logo {
+    width: 30%;
+    flex-shrink: 0;
+    /* position: relative */
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 100%;
+
+}
+
+main header div {
+    /* flex-grow: 0; */
+    width: 70%;
+}
+
+.article-header div {
+    display: flex;
+    align-items: center;
+}
+
+.picture-grid {
+    display: flex;
+    gap: 1.3em;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+
+.picture-grid div {
+    background-color: black;
+    width: 6.7em;
+    height: 5em;
+    flex-shrink: 0;
+    display: flex;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.picture-grid a {
+    display: block;
+    text-decoration: none;   
+    font-size: 3em;
+}
+
+.picture-grid a:visited {
+    color: inherit;
+}
+
+.image-with-caption {
+    width:60%;
+    margin:0 auto;
+    text-align: center;
+    padding: 0.5em;
+}
+
+.image-with-caption img {
+    width:100%;
+}
