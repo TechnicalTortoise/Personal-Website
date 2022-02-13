@@ -85,6 +85,8 @@ main header div {
     justify-content: center;
     align-items: center;
     text-align: center;
+    color:black;
+    background-blend-mode: ;
 }
 
 .picture-grid a {
@@ -101,7 +103,8 @@ main header div {
     width:60%;
     margin:0 auto;
     text-align: center;
-    padding: 0.5em;
+    padding-bottom: 0.1em;
+    padding-top: 0.1em;
 }
 
 .image-with-caption img {
