@@ -11,7 +11,6 @@
 html, body {
     margin: 0;
     min-height: 100%;
-    box-sizing: border-box;
 }
 
 body {
@@ -30,12 +29,13 @@ main {
     display: flex;
     gap: 1em;
     flex-direction: column;
+    box-sizing: border-box;
 }
 
 main header {
     display: flex;
     flex-direction: row;
-    gap: 1em;
+    gap: 2.5em;
 }
 
 h1 {
@@ -73,9 +73,9 @@ main header div {
     /* justify-content: space-between; */
 }
 
-.picture-grid div {
+.picture-grid-image {
     background-color: black;
-    width: 6.7em;
+    width: 6.48em;
     height: 5em;
     flex-shrink: 0;
     display: flex;
@@ -85,8 +85,28 @@ main header div {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color:black;
-    background-blend-mode: ;
+    color:white;
+    position: relative;
+    text-shadow: 0 0 0.3em black;
+}
+
+.picture-grid-image::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    z-index: 0;
+    transition: opacity 0.25s;
+}
+
+.picture-grid-image:hover::before {
+    opacity: 0.5;
+}
+
+.picture-grid-image span {
+    z-index: 1;
 }
 
 .picture-grid a {
@@ -109,4 +129,8 @@ main header div {
 
 .image-with-caption img {
     width:100%;
+}
+
+footer {
+    text-align: center;
 }
