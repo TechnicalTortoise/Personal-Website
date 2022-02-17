@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fixed Wing UAV</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+        <header class="article-header">
+            <div >
+                <h1>Fixed Wing UAV</h1>
+            </div>
+            <div class="logo">
+            <a href="index.html">
+                <img src="Images/logo.png" alt="logo">
+            </a>
+            </div>
+          </header>
+
+        <section>          
+            <p>
+                This project was completed in semester 2, year 2, with a group of 5. My role was in avionics.
+                This involved design, making, and programming a semi autonomous flight computer.
+                The rest of the team designed and built the wing. 
+            </p>
+            <section class="image-with-caption">
+                <figure>
+                    <img src="Images/SecondYearUav/1.jpg" alt="UAV">
+                    <figcaption>Lifting flow over a cylinder</figcaption>
+                </figure>
+            </section>
+            <p>
+                For the flight computer, we were given:
+                <ul>
+                    <li>Arduino uno Rev3</li>
+                    <li>Ultimate GPS + SD card shield</li>
+                    <li>Arduino uno Rev3</li>
+                    <li>BMP085 pressure/temperature sensor</li>
+                    <li>LSM303DLHC compass/accelerometer</li>
+                    <li>L3GD20H gyro</li>
+                    <li>A 60A speed controller</li>
+                    <li>6 Channel receiver</li>
+                </ul>
+                With the given items, the avionics system had to:
+                <ul>
+                    <li>Allow full manual control of the aircraft</li>
+                    <li>At the flick of a switch on the transmitter, change to autopilot mode</li>
+                    <li>In autopilot mode, maintain straight and level flight</li>
+                    <li>Log various data items throughout the flight for later analysis</li>
+                </ul>
+                The first step was to design the circuitry required, followed by a simple prototype.
+            </p>
+            <section class="image-with-caption">
+                <figure>
+                    <img src="Images/SecondYearUav/2.png" alt="Iron bird">
+                    <figcaption>Iron bird</figcaption>
+                </figure>
+            </section>
+            <p>
+                After multiple iterations, the design was finalised, and the wiring could be layed out
+                and fixed to the avionics tray. A sizeable portion of time was spent optimising the
+                various systems to lower mass. Jumper cables would added later to connect the various components. 
+            </p>
+            <section class="image-with-caption">
+                <figure>
+                    <img src="Images/SecondYearUav/4.png" alt="Schematic">
+                    <figcaption>Schematic</figcaption>
+                </figure>
+            </section>
+            <p>
+                The software was written in parallel with hardware development. Given the use of an Arduino Uno,
+                memory was severely limited. The program had to do 3 things:
+                <ol>
+                    <li>Read sensor data, and log it to an SD card</li>
+                    <li>Monitor if the autopilot switch on the transmitter is engaged</li>
+                    <li>Autonomously control the ailerons and elevator if the switch is engaged</li>
+                </ol>
+                To achieve these goals, many problems had to be solved:
+                <ol>    
+                    <li>We were specifically told at the start of the project it was not possible to run all the sensors, and we'd have to use a limited subset of them. With careful library choice, we discovered that it was definitely possible. Unfortunately, the GPS logging was not very successful, due to the carbon fibre wing spar, and aluminium tail spar blocking the signal. The rest of the data logging was successful however.</li>
+                    <li>Monitoring the receiver channel was quite straight forward, by simply connecting the channel to a PWM pin on the Arduino. Many failsafes were built into this section, reverting to manual mode if the wire became disconnected, or if the signal is weak.</li>
+                    <li>To control the attitude of the aircraft, accurate measurements of pitch and roll were required. To do this, data from the accelerometer and gyro were combined with a complementary filter. Pitch and roll data was then fed into 2 PID controllers, one for elevator angle and one for aileron angle. Tuning the PID loops correctly was very difficult given we only had one test flight. Luckily, I have some experience with PIDs from a previous project, and using my engineering intuition, guessed approximate tuning values.</li>
+                </ol>
+                In the test flight, the aircraft flew very well, and the autopilot was surprisingly effective. After 
+                the test flight, the pilot was clearly very happy with how well the autopilot performed. 
+                After receiving the marked work back, the autopilot was the best part of our work, and as far as I am aware,
+                the best they have ever had for that project.
+                Overall, everything worked, and the project was a complete success. 
+
+            </p>
+            <section class="image-with-caption">
+                <figure>
+                    <img src="Images/SecondYearUav/5.png" alt="Flying UAV">
+                    <figcaption>In Flight</figcaption>
+                </figure>
+            </section>
+        <footer>
+            Sam Newman 
+            | <a href="">CV</a>
+            | Contact:
+            <a href="http://www.linkedin.com/in/samnewmanaa3068152">LinkedIn</a>
+            <a href="https://www.youtube.com/channel/UCvM0fXQBl-AKibHYmPgmfOQ">Youtube</a>
+            | Last edited 04/2018
+          </footer>
+    </main>
+  </body>
+</html>
