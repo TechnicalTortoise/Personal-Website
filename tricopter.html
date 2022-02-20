@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tricopter</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+        <header class="article-header">
+            <div >
+                <h1>Tricopter</h1>
+            </div>
+            <div class="logo">
+            <a href="index.html">
+                <img src="Images/logo.png" alt="logo">
+            </a>
+            </div>
+          </header>
+
+        <section>
+            <p>
+                The goal of this project was to be a pathfinder for future VTOL aircraft. I'd never
+                built a multirotor before this, and it felt like a good starting point.
+                I started by deciding the rough size and layout. I went with a T shape frame, as it seemed
+                easier to put together. As I was expecting to crash it a lot, it needed to be cheap, so
+                I picked 15x15mm wood, held together with 3D prints (just PLA) and nuts and bolts. I don't remember what kind of wood it is but it probably isn't important.
+                I then planned the desing in more detail using Solidworks, however my license has since expired so I'm
+                not able to get any screenshots.
+            </p>
+             <section class="image-with-caption">
+                <figure>
+                    <img src="Images/Tricopter/Frame.jpg" alt="Tricopter frame">
+                    <figcaption>The frame</figcaption>
+                </figure>
+            </section>
+            <p>
+                For power, I decided to use 3 2204 2300Kv motors, 5140 3 bladed props, 1000mAh 3s LiPo battery, and 3x30A ESCs.
+                In hindsight, I should have picked lower Kv motors and bigger props for the size of the frame, and possibly 
+                used a 4s battery. The front motors are mounted to the frame using 3D printed mounts, which are then ziptied to the frame.
+            </p>
+            <section class="image-with-caption">
+                <figure>
+                    <img src="Images/Tricopter/MotorMount.jpg" alt="Motor mount">
+                    <figcaption>Right motor mount</figcaption>
+                </figure>
+            </section>
+            <p>
+                I decided to tilt the rear motor using a servo directly driving it, as I figured this would be the best
+                way to reduce backlash.
+                I initially used a MG90 servo for the tail, however this was not powerful enough and I later swapped
+                it out for a Corona DS339HV digital servo. The servo mount and tilt mechanism are also ziptied to the frame.
+            </p>
+            <section class="image-with-caption">
+                <figure>
+                    <img src="Images/Tricopter/Tail2.jpg" alt="Motor mount">
+                    <img src="Images/Tricopter/Tail2b.jpg" alt="Motor mount">
+                    <figcaption>Tail motor mount</figcaption>
+                </figure>
+            </section>
+            <p>
+                For the flight controller, I decided to make my own, for the fun of it, the challenge, and also the future flexibility.
+                The actual control is done by a Teensy 4.0, which is more than powerful enough for this task, and naturally is quite small.
+                For the IMU, I picked an MPU6050 because they're cheap.
+                As it's all just a prototype, I used some prototyping board to mount and connect the Teensy, IMU, 
+                radio inputs and motor/servo outputs.
+            </p>
+            <section class="image-with-caption">
+                <figure>
+                    <img src="Images/Tricopter/FlightComputer.jpg" alt="Flight controller">
+                    <figcaption>Top: Power distribution board and BEC. Bottom: The flight controller</figcaption>
+                </figure>
+            </section>
+            <p>
+                While waiting for parts to arrive, I wrote the flight controller software. This is done in C++,
+                making use of the Arduino IDE with the TeesnyDuino modification. Ater writing the first version of the software,
+                I accidentally found the <a href="https://github.com/nickrehm/dRehmFlight">dRehmFlightVTOL</a> project, which
+                also uses a Teensy 4.0 as a flight controller. While I could of used the dRehmFlight code, I'm glad I didn't, 
+                as frankly I enjoyed writing my own.
+                After testing as much as I could at home, I took it to a small bit of grass outside the office to test it and tune it.
+            </p>
+            <section class="image-with-caption">
+                <figure>
+                    <img src="Images/Tricopter/OnTable.jpg" alt="Tricopter on a table outside">
+                    <figcaption>Completed tricopter before flight testing (note the original, smaller servo in the tail)</figcaption>
+                </figure>
+            </section>
+            <iframe src="https://www.youtube.com/embed/CpdwTyUMQdc" class="center" allowfullscreen="" width="100%" height="500" frameborder="0"></iframe>
+
+            <p>
+                After the flights in the video, I upgraded the tail servo and retuned the PIDs to improve flight characterstics.
+                todo get footage.
+            </p>
+
+        <footer>
+            Sam Newman 
+            | <a href="">CV</a>
+            | Contact:
+            <a href="http://www.linkedin.com/in/samnewmanaa3068152">LinkedIn</a>
+            <a href="https://www.youtube.com/channel/UCvM0fXQBl-AKibHYmPgmfOQ">Youtube</a>
+            | Originally posted 02/2022 | Last edited 02/2022
+          </footer>
+    </main>
+  </body>
+</html>
